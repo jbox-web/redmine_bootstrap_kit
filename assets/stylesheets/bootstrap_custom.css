@@ -1,0 +1,41 @@
+/*
+BOOSTRAP CUSTOM 2
+*/
+ul.unstyled, ol.unstyled {
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+
+dl { margin-bottom: 10px; }
+dt, dd { line-height: 25px; }
+dt { font-weight: bold; }
+dd { margin-left: 10px; }
+
+.dl-horizontal {}
+.dl-horizontal:before, .dl-horizontal:after { content: ""; display: table; line-height: 0; }
+.dl-horizontal:after { clear: both; }
+.dl-horizontal dt { color: #555555; clear: left; float: left; overflow: hidden; text-align: right; text-overflow: ellipsis; white-space: nowrap; width: 160px; }
+.dl-horizontal dd { margin-left: 180px; }
+.dl-xxxlarge dt { width: 500px; }
+.dl-xxxlarge dd { margin-left: 520px; }
+.dl-xxlarge dt { width: 400px; }
+.dl-xxlarge dd { margin-left: 420px; }
+.dl-xlarge dt { width: 300px; }
+.dl-xlarge dd { margin-left: 320px; }
+.dl-large dt  { width: 240px; }
+.dl-large dd  { margin-left: 260px; }
+.dl-small dt  { width: 110px; }
+.dl-small dd  { margin-left: 130px; }
+.dl-medium dt { width: 110px; }
+.dl-medium dd { margin-left: 125px; }
+
+
+/*
+BOOSTRAP CUSTOM 3
+*/
+.table-wrap   { table-layout: fixed; word-wrap: break-word; }
+
+div.flash.warning, .conflict {
+  background: url("../images/warning.png") no-repeat scroll 8px 18px #FFEBC1;
+}
