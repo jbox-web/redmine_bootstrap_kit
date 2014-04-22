@@ -2,7 +2,7 @@
 
 As Redmine does not support asset pipeline, we need to install JQuery plugins as Redmine plugins to load them globally.
 
-Current version : "JQuery UI Bootstrap 0.5":http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/ - 2014-04-19
+Current version : [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
 
 Just clone it in your Redmine plugins directory :
 
