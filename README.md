@@ -13,7 +13,7 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'font_awesome',                     :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'font_awesome',                    :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin => 'redmine_bootstrap_kit' %>
