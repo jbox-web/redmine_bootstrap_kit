@@ -14,20 +14,22 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 ```
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag 'font_awesome',                     :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_custom',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_label',        :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_switch',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tables',       :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_custom',      :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_label',       :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_pagination',  :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_switch',      :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_tables',      :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_tabs',        :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
 
-  <%= stylesheet_link_tag 'git_urls',                         :plugin => 'redmine_git_hosting' %>
-  <%= stylesheet_link_tag 'tag_it/jquery_tagit',              :plugin => 'redmine_git_hosting' %>
-
+  <%= javascript_include_tag 'plugins/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
   <%= javascript_include_tag 'plugins/bootstrap_switch',      :plugin => 'redmine_bootstrap_kit' %>
+  <%= javascript_include_tag 'plugins/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
   <%= javascript_include_tag 'plugins/bootstrap_transitions', :plugin => 'redmine_bootstrap_kit' %>
   <%= javascript_include_tag 'bootstrap',                     :plugin => 'redmine_bootstrap_kit' %>
-
-  <%= javascript_include_tag 'plugins/tag_it',                :plugin => 'redmine_git_hosting' %>
-  <%= javascript_include_tag 'plugins/zero_clipboard_min',    :plugin => 'redmine_git_hosting' %>
 
   <%= javascript_tag do %>
     $(document).ready(function() {
