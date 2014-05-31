@@ -897,11 +897,19 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs-panel .ui-button{text-decoration:none;}
 .ui-tabs .ui-tabs-hide { display: none !important; }
 
-
 /* IE fix for background inheritance from ui-widget*/
 .ui-tabs .ui-tabs-nav li{
   filter:none;
 }
+
+.ui-tabs-vertical .ui-widget-header { border: none; }
+.ui-tabs-vertical .ui-tabs-nav { float: left; width: 10%; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-right: 1px solid #DDDDDD; overflow: hidden; margin: 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display: block; width: 100%; }
+.ui-tabs-vertical .ui-tabs-nav li a:hover { cursor: pointer; border-color: #DDDDDD rgba(0, 0, 0, 0) #DDDDDD #DDDDDD; border-radius: 4px 0 0 4px; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { border-color: #DDDDDD rgba(0, 0, 0, 0) #DDDDDD #DDDDDD; border-radius: 4px 0 0 4px; }
+.ui-tabs-vertical .ui-tabs-panel { float: left; border-radius: 0; position: relative; left: -1px; width: 80%; overflow: auto; }
+
 
 /*
  * jQuery UI Tooltip 1.9.0
