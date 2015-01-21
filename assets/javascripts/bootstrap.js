@@ -93,7 +93,6 @@ function initModalBoxes(modals){
       autoOpen: false,
       height: 'auto',
       width: 'auto',
-      position: ['center', 'center'],
       modal: true,
       hide: {
         effect: "fade",

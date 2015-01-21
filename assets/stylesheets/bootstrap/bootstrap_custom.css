@@ -752,7 +752,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 .ui-dialog .ui-dialog-titlebar-close span {
   display: block;
-  margin: 1px;
+  margin: -9px;
   text-indent: 9999px;
 }
 
