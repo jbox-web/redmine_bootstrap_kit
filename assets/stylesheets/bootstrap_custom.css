@@ -1,10 +1,16 @@
 /*
 BOOSTRAP CUSTOM 2
 */
-ul.unstyled, ol.unstyled {
-  list-style: none outside none;
-  margin: 0;
+ol.list-unstyled,
+ul.list-unstyled {
+  list-style-type: none;
   padding: 0;
+  margin: 0;
+}
+
+ol.list-inline,
+ul.list-inline {
+  display: inline-flex;
 }
 
 dl { margin-bottom: 10px; }
@@ -29,6 +35,8 @@ dd { margin-left: 10px; }
 .dl-small dd  { margin-left: 130px; }
 .dl-medium dt { width: 110px; }
 .dl-medium dd { margin-left: 125px; }
+.dl-xsmall dt  { width: 50px; }
+.dl-xsmall dd  { margin-left: 60px; }
 
 
 /*
@@ -38,4 +46,30 @@ BOOSTRAP CUSTOM 3
 
 div.flash.warning, .conflict {
   background: url("../images/warning.png") no-repeat scroll 8px 18px #FFEBC1;
+}
+
+
+/*BOOTSTRAP LIKE*/
+.container {
+  width: 100%;
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.col-md-6 {
+  width: 45%;
+  display: table-cell;
+}
+
+.col-md-12 {
+  width: 90%;
+  display: table-cell;
+}
+
+.row > .col-md-6,
+.row > .col-md-12 {
+  padding: 0 10px;
 }
