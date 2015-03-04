@@ -33,7 +33,14 @@
 
 <p>As Redmine does not support asset pipeline, we need to install JQuery plugins as Redmine plugins to load them globally.</p>
 
-<p>Current version : <a href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/">JQuery UI Bootstrap 0.5</a> - 2014-04-19</p>
+<p>It includes :</p>
+
+<ul>
+<li>
+<a href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/">JQuery UI Bootstrap 0.5</a> - 2014-04-19</li>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome 4.3.0</a></li>
+<li><a href="http://aehlke.github.io/tag-it/">JQuery TagIt</a></li>
+</ul>
 
 <p>Just clone it in your Redmine plugins directory :</p>
 
@@ -45,6 +52,7 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 
 <pre><code>&lt;% content_for :header_tags do %&gt;
   &lt;%= stylesheet_link_tag 'font_awesome',                    :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
+  &lt;%= stylesheet_link_tag 'bootstrap_custom',                :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
