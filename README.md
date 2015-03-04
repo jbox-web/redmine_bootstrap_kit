@@ -1,8 +1,12 @@
-## Redmine Bootstrap Kit (v0.1)
+## Redmine Bootstrap Kit
 
 As Redmine does not support asset pipeline, we need to install JQuery plugins as Redmine plugins to load them globally.
 
-Current version : [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
+It includes :
+
+* [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
+* [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
+* [JQuery TagIt](http://aehlke.github.io/tag-it/)
 
 Just clone it in your Redmine plugins directory :
 
@@ -14,6 +18,7 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 ```
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag 'font_awesome',                    :plugin => 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag 'bootstrap_custom',                :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin => 'redmine_bootstrap_kit' %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin => 'redmine_bootstrap_kit' %>
@@ -52,10 +57,10 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 
 
 ## Copyrights & License
+
 Redmine Bootstrap Kit is completely free and open source and released under the [MIT License](https://github.com/jbox-web/redmine_bootstrap_kit/blob/devel/LICENSE).
 
-Copyright (c) 2013-2014 Nicolas Rodriguez (nrodriguez@jbox-web.com), JBox Web (http://www.jbox-web.com) [![endorse](https://api.coderwall.com/n-rodriguez/endorsecount.png)](https://coderwall.com/n-rodriguez)
-
+Copyright (c) 2013-2015 Nicolas Rodriguez (nrodriguez@jbox-web.com), JBox Web (http://www.jbox-web.com) [![endorse](https://api.coderwall.com/n-rodriguez/endorsecount.png)](https://coderwall.com/n-rodriguez)
 
 ## Contribute
 
