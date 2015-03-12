@@ -1,8 +1,12 @@
 module BootstrapSwitchHelper
 
-  def bootstrapswitch_button(&block)
-    content_tag(:span, class: 'bootstrap-switch switch-small', data: bootstrapswitch_default_data) do
-      yield
+  def bootstrap_switch_tag(opts = {}, &block)
+    css_class = opts.delete(:class){ '' }
+    options   = { data: bootstrapswitch_default_data }
+    options   = options.deep_merge(opts)
+    options[:class] = ['bootstrap-switch', 'switch-small'].push(css_class)
+    content_tag(:span, options) do
+      yield if block_given?
     end
   end
 
