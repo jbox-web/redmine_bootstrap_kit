@@ -37,7 +37,18 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 ```
 
 ## To create BootstrapSwitch buttons
+In your controllers :
 
+```
+class MyPluginController < ApplicationController
+  ...
+
+  helper :bootstrap_switch
+
+end
+```
+
+In your views :
 ```
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag 'bootstrap/bootstrap_switch',  plugin: 'redmine_bootstrap_kit' %>
