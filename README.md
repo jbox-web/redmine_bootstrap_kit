@@ -37,6 +37,7 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 ```
 
 ## To create BootstrapSwitch buttons
+
 In your controllers :
 
 ```
@@ -49,11 +50,12 @@ end
 ```
 
 In your views :
+
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_switch',  plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_switch', plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'bootstrap',                plugin: 'redmine_bootstrap_kit' %>
+  <%= stylesheet_link_tag    'bootstrap/bootstrap_switch', plugin: 'redmine_bootstrap_kit' %>
+  <%= javascript_include_tag 'plugins/bootstrap_switch',   plugin: 'redmine_bootstrap_kit' %>
+  <%= javascript_include_tag 'bootstrap',                  plugin: 'redmine_bootstrap_kit' %>
 <% end %>
 
 <p>
@@ -69,6 +71,46 @@ In your views :
     $('.bootstrap-switch').each(function(index, element) {
       installBootstrapSwitch(element);
     });
+  });
+<% end %>
+```
+
+## To create TagIt lists
+
+In your controllers :
+
+```
+class MyPluginController < ApplicationController
+  ...
+
+  helper :tag_it
+
+end
+
+
+In your views :
+
+```
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag    'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %>
+  <%= javascript_include_tag 'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %>
+  <%= javascript_include_tag 'bootstrap',     plugin: 'redmine_bootstrap_kit' %>
+<% end %>
+
+<p>
+  <label>This is a TagIt list</label>
+</p>
+
+<%= tag_it_list 'plugin_emails_list',
+                { name: 'plugin[emails_list][]' },
+                { placeholder: '+ add email' } do %>
+  <li>john@doe.com</li>
+  <li>jane@doe.com</li>
+<% end %>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    setTagIt();
   });
 <% end %>
 ```
