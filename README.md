@@ -86,7 +86,7 @@ class MyPluginController < ApplicationController
   helper :tag_it
 
 end
-
+```
 
 In your views :
 
