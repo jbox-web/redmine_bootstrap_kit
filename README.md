@@ -7,6 +7,7 @@ It includes :
 * [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
 * [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
 * [JQuery TagIt](http://aehlke.github.io/tag-it/)
+* [BootstrapSwitch v1.8](https://github.com/nostalgiaz/bootstrap-switch)
 
 Just clone it in your Redmine plugins directory :
 
