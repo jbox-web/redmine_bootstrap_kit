@@ -6,4 +6,5 @@ module RedmineBootstrapKitHelper
   include RedminePresenterHelper
   include TagItHelper
   include ZeroClipboardHelper
+  include WillPaginateHelper
 end
