@@ -45,6 +45,11 @@ module BootstrapKitAssetsLoader
     end
 
 
+    def load_bootstrap_pagination
+      rbk_include_css('bootstrap/bootstrap_pagination')
+    end
+
+
     def load_bootstrap_switch
       rbk_include_js('plugins/bootstrap_switch') +
       rbk_include_css('bootstrap/bootstrap_switch')
