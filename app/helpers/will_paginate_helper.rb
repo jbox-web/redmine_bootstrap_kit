@@ -2,8 +2,22 @@ require 'will_paginate/view_helpers/action_view'
 
 module WillPaginateHelper
 
-  def paginate(collection, params= {})
-    will_paginate collection, params.merge(:renderer => WillPaginateHelper::LinkRenderer)
+  def paginate(collection, opts = {})
+    will_paginate collection, pagination_default_options.deep_merge(opts)
+  end
+
+
+  def pagination_default_options
+    {
+      renderer:       WillPaginateHelper::LinkRenderer,
+      remote:         true,
+      next_label:     '&raquo;',
+      previous_label: '&laquo;',
+      param_name:     :page,
+      reverse:        false,
+      class:          'pagination pagination-small pagination-centered',
+      params:         {}
+    }
   end
 
 
