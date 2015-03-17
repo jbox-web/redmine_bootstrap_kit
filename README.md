@@ -21,21 +21,14 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'font_awesome',                    :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap_custom',                :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_custom',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_label',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_pagination',  :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tables',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tabs',        :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
-
-  <%= javascript_include_tag 'plugins/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_transitions', :plugin => 'redmine_bootstrap_kit' %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_alerts) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_label) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_modals) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_tables) %>
+  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
+  <%= redmine_bootstrap_kit_load(:font_awesome) %>
 <% end %>
 ```
 
@@ -47,7 +40,7 @@ In your controllers :
 class MyPluginController < ApplicationController
   ...
 
-  helper :bootstrap_switch
+  helper :redmine_bootstrap_kit
 
 end
 ```
@@ -56,9 +49,8 @@ In your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag    'bootstrap/bootstrap_switch', plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_switch',   plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'bootstrap',                  plugin: 'redmine_bootstrap_kit' %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
 <% end %>
 
 <p>
@@ -70,11 +62,7 @@ In your views :
 </p>
 
 <%= javascript_tag do %>
-  $(document).ready(function() {
-    $('.bootstrap-switch').each(function(index, element) {
-      installBootstrapSwitch(element);
-    });
-  });
+  $(document).ready(function() { setBootstrapSwitch(); });
 <% end %>
 ```
 
@@ -86,7 +74,7 @@ In your controllers :
 class MyPluginController < ApplicationController
   ...
 
-  helper :tag_it
+  helper :redmine_bootstrap_kit
 
 end
 ```
@@ -95,9 +83,8 @@ In your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag    'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'bootstrap',     plugin: 'redmine_bootstrap_kit' %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
 <% end %>
 
 <p>
@@ -112,9 +99,7 @@ In your views :
 <% end %>
 
 <%= javascript_tag do %>
-  $(document).ready(function() {
-    setTagIt();
-  });
+  $(document).ready(function() { setTagIt(); });
 <% end %>
 ```
 
