@@ -36,11 +36,15 @@
 <p>It includes :</p>
 
 <ul>
+<li><a href="https://github.com/nostalgiaz/bootstrap-switch">BootstrapSwitch 1.8</a></li>
 <li>
 <a href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/">JQuery UI Bootstrap 0.5</a> - 2014-04-19</li>
-<li><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome 4.3.0</a></li>
 <li><a href="http://aehlke.github.io/tag-it/">JQuery TagIt</a></li>
+<li><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome 4.3.0</a></li>
+<li><a href="https://github.com/zeroclipboard/zeroclipboard">ZeroClipboard 2.2.0</a></li>
 </ul>
+
+<p>And a set of various helper methods.</p>
 
 <p>Just clone it in your Redmine plugins directory :</p>
 
@@ -59,34 +63,91 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_custom',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_label',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_pagination',  :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_switch',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tables',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tabs',        :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tooltip',     :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
 
   &lt;%= javascript_include_tag 'plugins/bootstrap_alert',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'plugins/bootstrap_switch',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= javascript_include_tag 'plugins/bootstrap_tooltip',     :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
   &lt;%= javascript_include_tag 'plugins/bootstrap_transitions', :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'bootstrap',                     :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
+&lt;% end %&gt;
+</code></pre>
 
-  &lt;%= javascript_tag do %&gt;
-    $(document).ready(function() {
-      $('.bootstrap-switch').each(function(index, element) {
-        installBootstrapSwitch(element);
-      });
-    });
-  &lt;% end %&gt;
+<h2>
+<a id="to-create-bootstrapswitch-buttons" class="anchor" href="#to-create-bootstrapswitch-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create BootstrapSwitch buttons</h2>
+
+<p>In your controllers :</p>
+
+<pre><code>class MyPluginController &lt; ApplicationController
+  ...
+
+  helper :bootstrap_switch
+
+end
+</code></pre>
+
+<p>In your views :</p>
+
+<pre><code>&lt;% content_for :header_tags do %&gt;
+  &lt;%= stylesheet_link_tag    'bootstrap/bootstrap_switch', plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= javascript_include_tag 'plugins/bootstrap_switch',   plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= javascript_include_tag 'bootstrap',                  plugin: 'redmine_bootstrap_kit' %&gt;
 &lt;% end %&gt;
 
 &lt;p&gt;
   &lt;label&gt;This is a switch button&lt;/label&gt;
-  &lt;span class="bootstrap-switch switch-small" data-on="primary" data-off="default" data-on-label="YES" data-off-label="NO"&gt;
+  &lt;%= bootstrap_switch_tag do %&gt;
     &lt;%= hidden_field_tag "extra[enable]", "false" %&gt;
     &lt;%= check_box_tag "extra[enable]" %&gt;
-  &lt;/span&gt;
+  &lt;% end %&gt;
 &lt;/p&gt;
 
+&lt;%= javascript_tag do %&gt;
+  $(document).ready(function() {
+    $('.bootstrap-switch').each(function(index, element) {
+      installBootstrapSwitch(element);
+    });
+  });
+&lt;% end %&gt;
+</code></pre>
+
+<h2>
+<a id="to-create-tagit-lists" class="anchor" href="#to-create-tagit-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create TagIt lists</h2>
+
+<p>In your controllers :</p>
+
+<pre><code>class MyPluginController &lt; ApplicationController
+  ...
+
+  helper :tag_it
+
+end
+</code></pre>
+
+<p>In your views :</p>
+
+<pre><code>&lt;% content_for :header_tags do %&gt;
+  &lt;%= stylesheet_link_tag    'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= javascript_include_tag 'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= javascript_include_tag 'bootstrap',     plugin: 'redmine_bootstrap_kit' %&gt;
+&lt;% end %&gt;
+
+&lt;p&gt;
+  &lt;label&gt;This is a TagIt list&lt;/label&gt;
+&lt;/p&gt;
+
+&lt;%= tag_it_list 'plugin_emails_list',
+                { name: 'plugin[emails_list][]' },
+                { placeholder: '+ add email' } do %&gt;
+  &lt;li&gt;john@doe.com&lt;/li&gt;
+  &lt;li&gt;jane@doe.com&lt;/li&gt;
+&lt;% end %&gt;
+
+&lt;%= javascript_tag do %&gt;
+  $(document).ready(function() {
+    setTagIt();
+  });
+&lt;% end %&gt;
 </code></pre>
 
 <h2>
