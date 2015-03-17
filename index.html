@@ -55,21 +55,14 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 <p>Now, within another Redmine plugins, you can call Bootstrap Kit elements :</p>
 
 <pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= stylesheet_link_tag 'font_awesome',                    :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap_custom',                :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_custom',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_label',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_pagination',  :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tables',      :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tabs',        :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= stylesheet_link_tag 'bootstrap/bootstrap_tooltip',     :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-
-  &lt;%= javascript_include_tag 'plugins/bootstrap_alert',       :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'plugins/bootstrap_tooltip',     :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'plugins/bootstrap_transitions', :plugin =&gt; 'redmine_bootstrap_kit' %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_alerts) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_label) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_modals) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_switch) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_tables) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:jquery_tag_it) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:font_awesome) %&gt;
 &lt;% end %&gt;
 </code></pre>
 
@@ -81,7 +74,7 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 <pre><code>class MyPluginController &lt; ApplicationController
   ...
 
-  helper :bootstrap_switch
+  helper :redmine_bootstrap_kit
 
 end
 </code></pre>
@@ -89,9 +82,8 @@ end
 <p>In your views :</p>
 
 <pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= stylesheet_link_tag    'bootstrap/bootstrap_switch', plugin: 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'plugins/bootstrap_switch',   plugin: 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'bootstrap',                  plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:bootstrap_switch) %&gt;
 &lt;% end %&gt;
 
 &lt;p&gt;
@@ -103,11 +95,7 @@ end
 &lt;/p&gt;
 
 &lt;%= javascript_tag do %&gt;
-  $(document).ready(function() {
-    $('.bootstrap-switch').each(function(index, element) {
-      installBootstrapSwitch(element);
-    });
-  });
+  $(document).ready(function() { setBootstrapSwitch(); });
 &lt;% end %&gt;
 </code></pre>
 
@@ -119,7 +107,7 @@ end
 <pre><code>class MyPluginController &lt; ApplicationController
   ...
 
-  helper :tag_it
+  helper :redmine_bootstrap_kit
 
 end
 </code></pre>
@@ -127,9 +115,8 @@ end
 <p>In your views :</p>
 
 <pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= stylesheet_link_tag    'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'jquery_tag_it', plugin: 'redmine_bootstrap_kit' %&gt;
-  &lt;%= javascript_include_tag 'bootstrap',     plugin: 'redmine_bootstrap_kit' %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
+  &lt;%= redmine_bootstrap_kit_load(:jquery_tag_it) %&gt;
 &lt;% end %&gt;
 
 &lt;p&gt;
@@ -144,9 +131,7 @@ end
 &lt;% end %&gt;
 
 &lt;%= javascript_tag do %&gt;
-  $(document).ready(function() {
-    setTagIt();
-  });
+  $(document).ready(function() { setTagIt(); });
 &lt;% end %&gt;
 </code></pre>
 
