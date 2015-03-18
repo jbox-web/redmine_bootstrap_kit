@@ -9,8 +9,8 @@ module FontAwesomeHelper
   end
 
 
-  def label_with_icon(label, icon, opts = {})
-    fa_icon(icon, opts) + label
+  def label_with_icon(label, icon, icon_opts = {})
+    fa_icon(icon, icon_opts) + label
   end
 
 
