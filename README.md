@@ -10,14 +10,69 @@ It includes :
 * [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
 * [ZeroClipboard 2.2.0](https://github.com/zeroclipboard/zeroclipboard)
 
-And a set of various helper methods.
+And a set of various Rails helper methods (see below).
+
+## Installation
 
 Just clone it in your Redmine plugins directory :
 
     cd REDMINE_ROOT/plugins
     git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 
-Now, within another Redmine plugins, you can call Bootstrap Kit elements :
+## What's included?
+
+It provides the following Rails helper methods :
+
+#### BootstrapKit assets loader :
+
+    redmine_bootstrap_kit_load(rbk_module)
+
+#### BootstrapSwitch :
+
+    bootstrap_switch_tag(opts = {}, &block)
+
+#### FontAwesome :
+
+    fa_icon(icon, opts = {})
+    label_with_icon(label, icon, icon_opts = {})
+
+#### AjaxHelper :
+
+    render_flash_messages_as_js(target = '#flash-messages', opts = {})
+    js_render_template(target, template, opts = {})
+    js_render_partial(target, partial, opts = {})
+    js_render(target, content, opts = {})
+
+#### PresenterHelper :
+
+    present(object, klass = nil, *args)
+
+#### JQuery TagIt :
+
+    tag_it_list(id, list_opts = {}, tag_it_opts = {}, &block)
+
+#### WillPaginateHelper :
+
+    paginate(collection, opts = {})
+
+#### ZeroClipboardHelper:
+
+    zero_clipboard_button_for(target)
+
+## How to use?
+
+To use Redmine Bootstrap Kit helper methods you must first add ```:redmine_bootstrap_kit``` helper in your controller :
+
+```
+class MyPluginController < ApplicationController
+  ...
+
+  helper :redmine_bootstrap_kit
+
+end
+```
+
+Then with the ```redmine_bootstrap_kit_load``` method you can load the desired assets in your views :
 
 ```
 <% content_for :header_tags do %>
@@ -32,18 +87,10 @@ Now, within another Redmine plugins, you can call Bootstrap Kit elements :
 <% end %>
 ```
 
+The ```:redmine_bootstrap_kit``` asset is needed if you want to use provided JS helpers (see below).
+
+
 ## To create BootstrapSwitch buttons
-
-In your controllers :
-
-```
-class MyPluginController < ApplicationController
-  ...
-
-  helper :redmine_bootstrap_kit
-
-end
-```
 
 In your views :
 
@@ -67,17 +114,6 @@ In your views :
 ```
 
 ## To create TagIt lists
-
-In your controllers :
-
-```
-class MyPluginController < ApplicationController
-  ...
-
-  helper :redmine_bootstrap_kit
-
-end
-```
 
 In your views :
 
