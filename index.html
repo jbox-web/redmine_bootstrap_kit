@@ -44,7 +44,10 @@
 <li><a href="https://github.com/zeroclipboard/zeroclipboard">ZeroClipboard 2.2.0</a></li>
 </ul>
 
-<p>And a set of various helper methods.</p>
+<p>And a set of various Rails helper methods (see below).</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>Just clone it in your Redmine plugins directory :</p>
 
@@ -52,7 +55,77 @@
 git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 </code></pre>
 
-<p>Now, within another Redmine plugins, you can call Bootstrap Kit elements :</p>
+<h2>
+<a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's included?</h2>
+
+<p>It provides the following Rails helper methods :</p>
+
+<h4>
+<a id="bootstrapkit-assets-loader-" class="anchor" href="#bootstrapkit-assets-loader-" aria-hidden="true"><span class="octicon octicon-link"></span></a>BootstrapKit assets loader :</h4>
+
+<pre><code>redmine_bootstrap_kit_load(rbk_module)
+</code></pre>
+
+<h4>
+<a id="bootstrapswitch-" class="anchor" href="#bootstrapswitch-" aria-hidden="true"><span class="octicon octicon-link"></span></a>BootstrapSwitch :</h4>
+
+<pre><code>bootstrap_switch_tag(opts = {}, &amp;block)
+</code></pre>
+
+<h4>
+<a id="fontawesome-" class="anchor" href="#fontawesome-" aria-hidden="true"><span class="octicon octicon-link"></span></a>FontAwesome :</h4>
+
+<pre><code>fa_icon(icon, opts = {})
+label_with_icon(label, icon, icon_opts = {})
+</code></pre>
+
+<h4>
+<a id="ajaxhelper-" class="anchor" href="#ajaxhelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>AjaxHelper :</h4>
+
+<pre><code>render_flash_messages_as_js(target = '#flash-messages', opts = {})
+js_render_template(target, template, opts = {})
+js_render_partial(target, partial, opts = {})
+js_render(target, content, opts = {})
+</code></pre>
+
+<h4>
+<a id="presenterhelper-" class="anchor" href="#presenterhelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>PresenterHelper :</h4>
+
+<pre><code>present(object, klass = nil, *args)
+</code></pre>
+
+<h4>
+<a id="jquery-tagit-" class="anchor" href="#jquery-tagit-" aria-hidden="true"><span class="octicon octicon-link"></span></a>JQuery TagIt :</h4>
+
+<pre><code>tag_it_list(id, list_opts = {}, tag_it_opts = {}, &amp;block)
+</code></pre>
+
+<h4>
+<a id="willpaginatehelper-" class="anchor" href="#willpaginatehelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>WillPaginateHelper :</h4>
+
+<pre><code>paginate(collection, opts = {})
+</code></pre>
+
+<h4>
+<a id="zeroclipboardhelper" class="anchor" href="#zeroclipboardhelper" aria-hidden="true"><span class="octicon octicon-link"></span></a>ZeroClipboardHelper:</h4>
+
+<pre><code>zero_clipboard_button_for(target)
+</code></pre>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use?</h2>
+
+<p>To use Redmine Bootstrap Kit helper methods you must first add <code>:redmine_bootstrap_kit</code> helper in your controller :</p>
+
+<pre><code>class MyPluginController &lt; ApplicationController
+  ...
+
+  helper :redmine_bootstrap_kit
+
+end
+</code></pre>
+
+<p>Then with the <code>redmine_bootstrap_kit_load</code> method you can load the desired assets in your views :</p>
 
 <pre><code>&lt;% content_for :header_tags do %&gt;
   &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
@@ -66,18 +139,10 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 &lt;% end %&gt;
 </code></pre>
 
+<p>The <code>:redmine_bootstrap_kit</code> asset is needed if you want to use provided JS helpers (see below).</p>
+
 <h2>
 <a id="to-create-bootstrapswitch-buttons" class="anchor" href="#to-create-bootstrapswitch-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create BootstrapSwitch buttons</h2>
-
-<p>In your controllers :</p>
-
-<pre><code>class MyPluginController &lt; ApplicationController
-  ...
-
-  helper :redmine_bootstrap_kit
-
-end
-</code></pre>
 
 <p>In your views :</p>
 
@@ -101,16 +166,6 @@ end
 
 <h2>
 <a id="to-create-tagit-lists" class="anchor" href="#to-create-tagit-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create TagIt lists</h2>
-
-<p>In your controllers :</p>
-
-<pre><code>class MyPluginController &lt; ApplicationController
-  ...
-
-  helper :redmine_bootstrap_kit
-
-end
-</code></pre>
 
 <p>In your views :</p>
 
