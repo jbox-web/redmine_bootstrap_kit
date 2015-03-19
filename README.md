@@ -4,57 +4,140 @@ As Redmine does not support asset pipeline, we need to install JQuery plugins as
 
 It includes :
 
+* [BootstrapSwitch 1.8](https://github.com/nostalgiaz/bootstrap-switch)
 * [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
-* [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
 * [JQuery TagIt](http://aehlke.github.io/tag-it/)
+* [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
+* [ZeroClipboard 2.2.0](https://github.com/zeroclipboard/zeroclipboard)
+
+And a set of various Rails helper methods (see below).
+
+## Installation
 
 Just clone it in your Redmine plugins directory :
 
     cd REDMINE_ROOT/plugins
     git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 
-Now, within another Redmine plugins, you can call Bootstrap Kit elements :
+## What's included?
+
+It provides the following Rails helper methods :
+
+#### BootstrapKit assets loader :
+
+    redmine_bootstrap_kit_load(rbk_module)
+
+#### BootstrapSwitch :
+
+    bootstrap_switch_tag(opts = {}, &block)
+
+#### FontAwesome :
+
+    fa_icon(icon, opts = {})
+    label_with_icon(label, icon, icon_opts = {})
+
+#### AjaxHelper :
+
+    render_flash_messages_as_js(target = '#flash-messages', opts = {})
+    js_render_template(target, template, opts = {})
+    js_render_partial(target, partial, opts = {})
+    js_render(target, content, opts = {})
+
+#### PresenterHelper :
+
+    present(object, klass = nil, *args)
+
+#### JQuery TagIt :
+
+    tag_it_list(id, list_opts = {}, tag_it_opts = {}, &block)
+
+#### WillPaginateHelper :
+
+    paginate(collection, opts = {})
+
+#### ZeroClipboardHelper:
+
+    zero_clipboard_button_for(target)
+
+## How to use?
+
+To use Redmine Bootstrap Kit helper methods you must first add ```:redmine_bootstrap_kit``` helper in your controller :
+
+```
+class MyPluginController < ApplicationController
+  ...
+
+  helper :redmine_bootstrap_kit
+
+end
+```
+
+Then with the ```redmine_bootstrap_kit_load``` method you can load the desired assets in your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= stylesheet_link_tag 'font_awesome',                    :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap_custom',                :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_animations',  :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_close',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_custom',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_label',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_pagination',  :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_switch',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tables',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tabs',        :plugin => 'redmine_bootstrap_kit' %>
-  <%= stylesheet_link_tag 'bootstrap/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_alerts) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_label) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_modals) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_tables) %>
+  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
+  <%= redmine_bootstrap_kit_load(:font_awesome) %>
+<% end %>
+```
 
-  <%= javascript_include_tag 'plugins/bootstrap_alert',       :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_switch',      :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_tooltip',     :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'plugins/bootstrap_transitions', :plugin => 'redmine_bootstrap_kit' %>
-  <%= javascript_include_tag 'bootstrap',                     :plugin => 'redmine_bootstrap_kit' %>
+The ```:redmine_bootstrap_kit``` asset is needed if you want to use provided JS helpers (see below).
 
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      $('.bootstrap-switch').each(function(index, element) {
-        installBootstrapSwitch(element);
-      });
-    });
-  <% end %>
+
+## To create BootstrapSwitch buttons
+
+In your views :
+
+```
+<% content_for :header_tags do %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
 <% end %>
 
 <p>
   <label>This is a switch button</label>
-  <span class="bootstrap-switch switch-small" data-on="primary" data-off="default" data-on-label="YES" data-off-label="NO">
+  <%= bootstrap_switch_tag do %>
     <%= hidden_field_tag "extra[enable]", "false" %>
     <%= check_box_tag "extra[enable]" %>
-  </span>
+  <% end %>
 </p>
 
+<%= javascript_tag do %>
+  $(document).ready(function() { setBootstrapSwitch(); });
+<% end %>
 ```
 
+## To create TagIt lists
+
+In your views :
+
+```
+<% content_for :header_tags do %>
+  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
+  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
+<% end %>
+
+<p>
+  <label>This is a TagIt list</label>
+</p>
+
+<%= tag_it_list 'plugin_emails_list',
+                { name: 'plugin[emails_list][]' },
+                { placeholder: '+ add email' } do %>
+  <li>john@doe.com</li>
+  <li>jane@doe.com</li>
+<% end %>
+
+<%= javascript_tag do %>
+  $(document).ready(function() { setTagIt(); });
+<% end %>
+```
 
 ## Copyrights & License
 

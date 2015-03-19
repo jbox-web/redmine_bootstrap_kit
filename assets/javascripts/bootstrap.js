@@ -190,3 +190,43 @@ function setTagIt(){
     $(this).tagit(tagit_options);
   });
 }
+
+
+function setZeroClipBoard(element){
+  var client = new ZeroClipboard($(element));
+
+  client.on('ready', function() {
+    $('#global-zeroclipboard-html-bridge').tooltip({
+      title:     $(element).data('label-to-copy'),
+      placement: 'right'
+    });
+
+    client.on('beforecopy', function() {
+      $('#global-zeroclipboard-html-bridge').tooltip('show');
+    });
+
+    client.on('aftercopy', function() {
+      $('.tooltip .tooltip-inner').text($(element).data('label-copied'));
+    });
+  });
+}
+
+
+// Return a helper with preserved width of cells
+var fixHelper = function(e, ui) {
+  ui.children().each(function() {
+    $(this).width($(this).width());
+  });
+  return ui;
+};
+
+
+function setSortableElement(element, form) {
+  $(element).sortable({
+    helper: fixHelper,
+    axis: 'y',
+    update: function(event, ui) {
+      $.post($(form).data('update-url'), $(this).sortable('serialize'));
+    }
+  });
+}
