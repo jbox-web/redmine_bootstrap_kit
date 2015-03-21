@@ -1,6 +1,7 @@
 module RedmineBootstrapKitHelper
   include BootstrapKitAssetsLoader
   include BootstrapSwitchHelper
+  include DropdownHelper
   include FontAwesomeHelper
   include RedmineAjaxHelper
   include RedminePresenterHelper

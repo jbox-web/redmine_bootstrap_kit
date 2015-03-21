@@ -7,6 +7,8 @@ module BootstrapKitAssetsLoader
     :bootstrap_modals,
     :bootstrap_switch,
     :bootstrap_tables,
+    :bootstrap_tabs,
+    :jquery_dropdown,
     :jquery_tag_it,
     :font_awesome
   ]
@@ -29,6 +31,8 @@ module BootstrapKitAssetsLoader
 
 
     def load_bootstrap_alerts
+      rbk_include_js('plugins/bootstrap_alert') +
+      rbk_include_js('plugins/bootstrap_transitions') +
       rbk_include_css('bootstrap/bootstrap_alert') +
       rbk_include_css('bootstrap/bootstrap_animations') +
       rbk_include_css('bootstrap/bootstrap_close')
@@ -58,6 +62,17 @@ module BootstrapKitAssetsLoader
 
     def load_bootstrap_tables
       rbk_include_css('bootstrap/bootstrap_tables')
+    end
+
+
+    def load_bootstrap_tabs
+      rbk_include_css('bootstrap/bootstrap_tabs')
+    end
+
+
+    def load_jquery_dropdown
+      rbk_include_js('plugins/jquery_dropdown') +
+      rbk_include_css('jquery_dropdown')
     end
 
 
