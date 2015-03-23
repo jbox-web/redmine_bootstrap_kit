@@ -84,7 +84,8 @@ module Bootstrap::AssetsLoader
 
 
     def load_bs_module_notify
-      bs_include_js('bootstrap_notify')
+      bs_include_js('bootstrap_notify') +
+      bs_include_css('animate')
     end
 
 
