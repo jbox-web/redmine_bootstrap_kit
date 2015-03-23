@@ -1,4 +1,4 @@
-module Redmine::PresenterHelper
+module RedmineBootstrapKit::PresenterHelper
 
   def present(object, klass = nil, *args)
     klass ||= "#{object.class.base_class}Presenter".constantize
