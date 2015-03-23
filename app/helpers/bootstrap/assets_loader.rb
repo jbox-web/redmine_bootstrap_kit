@@ -83,6 +83,11 @@ module Bootstrap::AssetsLoader
     end
 
 
+    def load_bs_module_notify
+      bs_include_js('bootstrap_notify')
+    end
+
+
     def load_bs_module_tag_it
       bs_include_js('jquery_tag_it') +
       bs_include_css('jquery_tag_it')
