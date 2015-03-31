@@ -1,4 +1,4 @@
-module TagItHelper
+module Bootstrap::TagItHelper
 
   def tag_it_list(id, list_opts = {}, tag_it_opts = {}, &block)
     data = { toggle: 'tagit' }

@@ -1,4 +1,4 @@
-module RedmineAjaxHelper
+module RedmineBootstrapKit::AjaxHelper
 
   def render_flash_messages_as_js(target = '#flash-messages', opts = {})
     js_render(target, render_flash_messages, opts).html_safe

@@ -1,4 +1,4 @@
-module BootstrapSwitchHelper
+module Bootstrap::SwitchHelper
 
   def bootstrap_switch_tag(opts = {}, &block)
     css_class = opts.delete(:class){ '' }
