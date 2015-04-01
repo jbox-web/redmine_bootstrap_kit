@@ -5,9 +5,12 @@ As Redmine does not support asset pipeline, we need to install JQuery plugins as
 It includes :
 
 * [BootstrapSwitch 1.8](https://github.com/nostalgiaz/bootstrap-switch)
-* [JQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
-* [JQuery TagIt](http://aehlke.github.io/tag-it/)
+* [CodeMirror 3.2](https://github.com/codemirror/codemirror)
+* [jQuery FileTree](https://github.com/daverogers/jQueryFileTree)
+* [jQuery TagIt](http://aehlke.github.io/tag-it/)
+* [jQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
 * [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
+* [Highcharts 4.1.4](https://github.com/highslide-software/highcharts.com)
 * [ZeroClipboard 2.2.0](https://github.com/zeroclipboard/zeroclipboard)
 
 And a set of various Rails helper methods (see below).
