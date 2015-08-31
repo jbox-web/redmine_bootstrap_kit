@@ -109,7 +109,6 @@ Then with the ```bootstrap_load_module``` method you can load the desired assets
   <%= bootstrap_load_module(:tooltip) %>
   <%= bootstrap_load_module(:notify) %>
   <%= bootstrap_load_module(:tag_it) %>
-
 <% end %>
 ```
 
