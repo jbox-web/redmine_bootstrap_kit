@@ -28,7 +28,24 @@ It provides the following Rails helper methods :
 
 #### BootstrapKit assets loader :
 
-    redmine_bootstrap_kit_load(rbk_module)
+    bootstrap_load_module(rbk_module)
+
+This method loads all JS and CSS files needed by the required module.
+
+The following modules are available :
+
+* alerts
+* label
+* modals
+* pagination
+* switch
+* tables
+* tabs
+* font_awesome
+* dropdown
+* tooltip
+* notify
+* tag_it
 
 #### BootstrapSwitch :
 
@@ -75,22 +92,28 @@ class MyPluginController < ApplicationController
 end
 ```
 
-Then with the ```redmine_bootstrap_kit_load``` method you can load the desired assets in your views :
+Then with the ```bootstrap_load_module``` method you can load the desired assets in your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_alerts) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_label) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_modals) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_tables) %>
-  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
-  <%= redmine_bootstrap_kit_load(:font_awesome) %>
+  <%= bootstrap_load_base %>
+  <%= bootstrap_load_module(:alerts) %>
+  <%= bootstrap_load_module(:label) %>
+  <%= bootstrap_load_module(:modals) %>
+  <%= bootstrap_load_module(:pagination) %>
+  <%= bootstrap_load_module(:switch) %>
+  <%= bootstrap_load_module(:tables) %>
+  <%= bootstrap_load_module(:tabs) %>
+  <%= bootstrap_load_module(:font_awesome) %>
+  <%= bootstrap_load_module(:dropdown) %>
+  <%= bootstrap_load_module(:tooltip) %>
+  <%= bootstrap_load_module(:notify) %>
+  <%= bootstrap_load_module(:tag_it) %>
+
 <% end %>
 ```
 
-The ```:redmine_bootstrap_kit``` asset is needed if you want to use provided JS helpers (see below).
+The ```bootstrap_load_base``` method call is needed if you want to use provided JS helpers (see below).
 
 
 ## To create BootstrapSwitch buttons
@@ -99,8 +122,8 @@ In your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
-  <%= redmine_bootstrap_kit_load(:bootstrap_switch) %>
+  <%= bootstrap_load_base %>
+  <%= bootstrap_load_module(:switch) %>
 <% end %>
 
 <p>
@@ -122,8 +145,8 @@ In your views :
 
 ```
 <% content_for :header_tags do %>
-  <%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %>
-  <%= redmine_bootstrap_kit_load(:jquery_tag_it) %>
+  <%= bootstrap_load_base %>
+  <%= bootstrap_load_module(:tag_it) %>
 <% end %>
 
 <p>
