@@ -12,6 +12,8 @@ It includes :
 * [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
 * [Highcharts 4.1.4](https://github.com/highslide-software/highcharts.com)
 * [ZeroClipboard 2.2.0](https://github.com/zeroclipboard/zeroclipboard)
+* [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify)
+ 
 
 And a set of various Rails helper methods (see below).
 
