@@ -122,7 +122,7 @@ end
 
 Then with the ```bootstrap_load_module``` method you can load the desired assets in your views :
 
-```ruby
+```html+erb
 <% content_for :header_tags do %>
   <%= bootstrap_load_base %>
   <%= bootstrap_load_module(:alerts) %>
@@ -147,7 +147,7 @@ The ```bootstrap_load_base``` method call is needed if you want to use provided 
 
 In your views :
 
-```ruby
+```html+erb
 <% content_for :header_tags do %>
   <%= bootstrap_load_base %>
   <%= bootstrap_load_module(:switch) %>
@@ -170,7 +170,7 @@ In your views :
 
 In your views :
 
-```ruby
+```html+erb
 <% content_for :header_tags do %>
   <%= bootstrap_load_base %>
   <%= bootstrap_load_module(:tag_it) %>
