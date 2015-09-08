@@ -1,4 +1,4 @@
-## Redmine Bootstrap Kit
+## Redmine Bootstrap Kit Plugin
 
 [![GitHub license](https://img.shields.io/github/license/jbox-web/redmine_bootstrap_kit.svg)](https://github.com/jbox-web/redmine_bootstrap_kit/blob/devel/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/jbox-web/redmine_bootstrap_kit.svg)](https://github.com/jbox-web/redmine_bootstrap_kit/releases/latest)
