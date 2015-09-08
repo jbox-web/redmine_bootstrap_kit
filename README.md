@@ -5,9 +5,13 @@
 [![Code Climate](https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit.png)](https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit)
 [![Dependency Status](https://gemnasium.com/jbox-web/redmine_bootstrap_kit.svg)](https://gemnasium.com/jbox-web/redmine_bootstrap_kit)
 
+### A Redmine plugin which makes developing your own Redmine plugin easy ;)
+
+## Why?
+
 As Redmine does not support asset pipeline, we need to install JQuery plugins as Redmine plugins to load them globally.
 
-It includes :
+It provides :
 
 * [BootstrapSwitch 1.8](https://github.com/nostalgiaz/bootstrap-switch)
 * [CodeMirror 3.2](https://github.com/codemirror/codemirror)
@@ -18,7 +22,6 @@ It includes :
 * [Highcharts 4.1.4](https://github.com/highslide-software/highcharts.com)
 * [ZeroClipboard 2.2.0](https://github.com/zeroclipboard/zeroclipboard)
 * [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify)
-
 
 And a set of various Rails helper methods (see below).
 
