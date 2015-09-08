@@ -1,35 +1,31 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Redmine Bootstrap Kit by jbox-web</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Redmine Bootstrap Kit</h1>
-        <p>Install JQuery UI Bootstrap as Redmine plugins to load it globally.</p>
+    <section class="page-header">
+      <h1 class="project-name">Redmine Bootstrap Kit</h1>
+      <h2 class="project-tagline">Install JQuery UI Bootstrap as Redmine plugins to load it globally.</h2>
+      <a href="https://github.com/jbox-web/redmine_bootstrap_kit" class="btn">View on GitHub</a>
+      <a href="https://github.com/jbox-web/redmine_bootstrap_kit/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jbox-web/redmine_bootstrap_kit/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/jbox-web/redmine_bootstrap_kit">View the Project on GitHub <small>jbox-web/redmine_bootstrap_kit</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/jbox-web/redmine_bootstrap_kit/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jbox-web/redmine_bootstrap_kit/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jbox-web/redmine_bootstrap_kit">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h2>
+    <section class="main-content">
+      <h2>
 <a id="redmine-bootstrap-kit" class="anchor" href="#redmine-bootstrap-kit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Redmine Bootstrap Kit</h2>
+
+<p><a href="https://github.com/jbox-web/redmine_bootstrap_kit/blob/devel/LICENSE"><img src="https://img.shields.io/github/license/jbox-web/redmine_bootstrap_kit.svg" alt="GitHub license"></a>
+<a href="https://github.com/jbox-web/redmine_bootstrap_kit/releases/latest"><img src="https://img.shields.io/github/release/jbox-web/redmine_bootstrap_kit.svg" alt="GitHub release"></a>
+<a href="https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit"><img src="https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit.png" alt="Code Climate"></a>
+<a href="https://gemnasium.com/jbox-web/redmine_bootstrap_kit"><img src="https://gemnasium.com/jbox-web/redmine_bootstrap_kit.svg" alt="Dependency Status"></a></p>
 
 <p>As Redmine does not support asset pipeline, we need to install JQuery plugins as Redmine plugins to load them globally.</p>
 
@@ -37,11 +33,15 @@
 
 <ul>
 <li><a href="https://github.com/nostalgiaz/bootstrap-switch">BootstrapSwitch 1.8</a></li>
+<li><a href="https://github.com/codemirror/codemirror">CodeMirror 3.2</a></li>
+<li><a href="https://github.com/daverogers/jQueryFileTree">jQuery FileTree</a></li>
+<li><a href="http://aehlke.github.io/tag-it/">jQuery TagIt</a></li>
 <li>
-<a href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/">JQuery UI Bootstrap 0.5</a> - 2014-04-19</li>
-<li><a href="http://aehlke.github.io/tag-it/">JQuery TagIt</a></li>
+<a href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/">jQuery UI Bootstrap 0.5</a> - 2014-04-19</li>
 <li><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome 4.3.0</a></li>
+<li><a href="https://github.com/highslide-software/highcharts.com">Highcharts 4.1.4</a></li>
 <li><a href="https://github.com/zeroclipboard/zeroclipboard">ZeroClipboard 2.2.0</a></li>
+<li><a href="https://github.com/mouse0270/bootstrap-notify">Bootstrap Notify</a></li>
 </ul>
 
 <p>And a set of various Rails helper methods (see below).</p>
@@ -51,9 +51,8 @@
 
 <p>Just clone it in your Redmine plugins directory :</p>
 
-<pre><code>cd REDMINE_ROOT/plugins
-git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
-</code></pre>
+<div class="highlight highlight-sh"><pre><span class="pl-c1">cd</span> REDMINE_ROOT/plugins
+git clone https://github.com/jbox-web/redmine_bootstrap_kit.git</pre></div>
 
 <h2>
 <a id="whats-included" class="anchor" href="#whats-included" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's included?</h2>
@@ -63,139 +62,144 @@ git clone https://github.com/jbox-web/redmine_bootstrap_kit.git
 <h4>
 <a id="bootstrapkit-assets-loader-" class="anchor" href="#bootstrapkit-assets-loader-" aria-hidden="true"><span class="octicon octicon-link"></span></a>BootstrapKit assets loader :</h4>
 
-<pre><code>redmine_bootstrap_kit_load(rbk_module)
-</code></pre>
+<div class="highlight highlight-ruby"><pre>bootstrap_load_module(rbk_module)</pre></div>
+
+<p>This method loads all JS and CSS files needed by the required module.</p>
+
+<p>The following modules are available :</p>
+
+<ul>
+<li>alerts</li>
+<li>label</li>
+<li>modals</li>
+<li>pagination</li>
+<li>switch</li>
+<li>tables</li>
+<li>tabs</li>
+<li>font_awesome</li>
+<li>dropdown</li>
+<li>tooltip</li>
+<li>notify</li>
+<li>tag_it</li>
+</ul>
 
 <h4>
 <a id="bootstrapswitch-" class="anchor" href="#bootstrapswitch-" aria-hidden="true"><span class="octicon octicon-link"></span></a>BootstrapSwitch :</h4>
 
-<pre><code>bootstrap_switch_tag(opts = {}, &amp;block)
-</code></pre>
+<div class="highlight highlight-ruby"><pre>bootstrap_switch_tag(opts <span class="pl-k">=</span> {}, <span class="pl-k">&amp;</span>block)</pre></div>
 
 <h4>
 <a id="fontawesome-" class="anchor" href="#fontawesome-" aria-hidden="true"><span class="octicon octicon-link"></span></a>FontAwesome :</h4>
 
-<pre><code>fa_icon(icon, opts = {})
-label_with_icon(label, icon, icon_opts = {})
-</code></pre>
+<div class="highlight highlight-ruby"><pre>fa_icon(icon, opts <span class="pl-k">=</span> {})
+label_with_icon(label, icon, icon_opts <span class="pl-k">=</span> {})</pre></div>
 
 <h4>
 <a id="ajaxhelper-" class="anchor" href="#ajaxhelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>AjaxHelper :</h4>
 
-<pre><code>render_flash_messages_as_js(target = '#flash-messages', opts = {})
-js_render_template(target, template, opts = {})
-js_render_partial(target, partial, opts = {})
-js_render(target, content, opts = {})
-</code></pre>
+<div class="highlight highlight-ruby"><pre>render_flash_messages_as_js(target <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>#flash-messages<span class="pl-pds">'</span></span>, opts <span class="pl-k">=</span> {})
+js_render_template(target, template, opts <span class="pl-k">=</span> {})
+js_render_partial(target, partial, opts <span class="pl-k">=</span> {})
+js_render(target, content, opts <span class="pl-k">=</span> {})</pre></div>
 
 <h4>
 <a id="presenterhelper-" class="anchor" href="#presenterhelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>PresenterHelper :</h4>
 
-<pre><code>present(object, klass = nil, *args)
-</code></pre>
+<div class="highlight highlight-ruby"><pre>present(object, klass <span class="pl-k">=</span> <span class="pl-c1">nil</span>, <span class="pl-k">*</span>args)</pre></div>
 
 <h4>
 <a id="jquery-tagit-" class="anchor" href="#jquery-tagit-" aria-hidden="true"><span class="octicon octicon-link"></span></a>JQuery TagIt :</h4>
 
-<pre><code>tag_it_list(id, list_opts = {}, tag_it_opts = {}, &amp;block)
-</code></pre>
+<div class="highlight highlight-ruby"><pre>tag_it_list(id, list_opts <span class="pl-k">=</span> {}, tag_it_opts <span class="pl-k">=</span> {}, <span class="pl-k">&amp;</span>block)</pre></div>
 
 <h4>
 <a id="willpaginatehelper-" class="anchor" href="#willpaginatehelper-" aria-hidden="true"><span class="octicon octicon-link"></span></a>WillPaginateHelper :</h4>
 
-<pre><code>paginate(collection, opts = {})
-</code></pre>
+<div class="highlight highlight-ruby"><pre>paginate(collection, opts <span class="pl-k">=</span> {})</pre></div>
 
 <h4>
 <a id="zeroclipboardhelper" class="anchor" href="#zeroclipboardhelper" aria-hidden="true"><span class="octicon octicon-link"></span></a>ZeroClipboardHelper:</h4>
 
-<pre><code>zero_clipboard_button_for(target)
-</code></pre>
+<div class="highlight highlight-ruby"><pre>zero_clipboard_button_for(target)</pre></div>
 
 <h2>
 <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use?</h2>
 
 <p>To use Redmine Bootstrap Kit helper methods you must first add <code>:redmine_bootstrap_kit</code> helper in your controller :</p>
 
-<pre><code>class MyPluginController &lt; ApplicationController
+<div class="highlight highlight-ruby"><pre><span class="pl-k">class</span> <span class="pl-en">MyPluginController<span class="pl-e"> &lt; ApplicationController</span></span>
   ...
 
-  helper :redmine_bootstrap_kit
+  helper <span class="pl-c1">:redmine_bootstrap_kit</span>
 
-end
-</code></pre>
+<span class="pl-k">end</span></pre></div>
 
-<p>Then with the <code>redmine_bootstrap_kit_load</code> method you can load the desired assets in your views :</p>
+<p>Then with the <code>bootstrap_load_module</code> method you can load the desired assets in your views :</p>
 
-<pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_alerts) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_label) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_modals) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_switch) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_tables) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:jquery_tag_it) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:font_awesome) %&gt;
-&lt;% end %&gt;
-</code></pre>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">&lt;</span><span class="pl-k">%</span> content_for <span class="pl-c1">:header_tags</span> <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_base %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:alerts</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:label) %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:modals</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:pagination) %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:switch</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:tables) %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:tabs</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:font_awesome) %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:dropdown</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:tooltip) %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:notify</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_module(:tag_it) %<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">&lt;</span><span class="pl-k">%</span> <span class="pl-k">end</span> <span class="pl-s"><span class="pl-pds">%&gt;</span></span></pre></div>
 
-<p>The <code>:redmine_bootstrap_kit</code> asset is needed if you want to use provided JS helpers (see below).</p>
+<p>The <code>bootstrap_load_base</code> method call is needed if you want to use provided JS helpers (see below).</p>
 
 <h2>
 <a id="to-create-bootstrapswitch-buttons" class="anchor" href="#to-create-bootstrapswitch-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create BootstrapSwitch buttons</h2>
 
 <p>In your views :</p>
 
-<pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:bootstrap_switch) %&gt;
-&lt;% end %&gt;
+<div class="highlight highlight-ruby"><pre><span class="pl-k">&lt;</span><span class="pl-k">%</span> content_for <span class="pl-c1">:header_tags</span> <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_base %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:switch</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">&lt;% end %<span class="pl-pds">&gt;</span></span>
 
-&lt;p&gt;
-  &lt;label&gt;This is a switch button&lt;/label&gt;
-  &lt;%= bootstrap_switch_tag do %&gt;
-    &lt;%= hidden_field_tag "extra[enable]", "false" %&gt;
-    &lt;%= check_box_tag "extra[enable]" %&gt;
-  &lt;% end %&gt;
-&lt;/p&gt;
+<span class="pl-k">&lt;</span>p<span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span>label<span class="pl-k">&gt;</span><span class="pl-c1">This</span> is a switch button<span class="pl-k">&lt;</span><span class="pl-k">/</span>label<span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_switch_tag <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">    &lt;%= hidden_field_tag "extra[enable]", "false" %<span class="pl-pds">&gt;</span></span>
+    <span class="pl-k">&lt;</span><span class="pl-k">%=</span> check_box_tag <span class="pl-s"><span class="pl-pds">"</span>extra[enable]<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;% end %<span class="pl-pds">&gt;</span></span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>p<span class="pl-k">&gt;</span>
 
-&lt;%= javascript_tag do %&gt;
-  $(document).ready(function() { setBootstrapSwitch(); });
-&lt;% end %&gt;
-</code></pre>
+<span class="pl-k">&lt;</span><span class="pl-k">%=</span> javascript_tag <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  $(document).ready(function() { setBootstrapSwitch(); });</span>
+<span class="pl-s">&lt;% end %<span class="pl-pds">&gt;</span></span></pre></div>
 
 <h2>
 <a id="to-create-tagit-lists" class="anchor" href="#to-create-tagit-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>To create TagIt lists</h2>
 
 <p>In your views :</p>
 
-<pre><code>&lt;% content_for :header_tags do %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:redmine_bootstrap_kit) %&gt;
-  &lt;%= redmine_bootstrap_kit_load(:jquery_tag_it) %&gt;
-&lt;% end %&gt;
+<div class="highlight highlight-ruby"><pre><span class="pl-k">&lt;</span><span class="pl-k">%</span> content_for <span class="pl-c1">:header_tags</span> <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;%= bootstrap_load_base %<span class="pl-pds">&gt;</span></span>
+  <span class="pl-k">&lt;</span><span class="pl-k">%=</span> bootstrap_load_module(<span class="pl-c1">:tag_it</span>) <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">&lt;% end %<span class="pl-pds">&gt;</span></span>
 
-&lt;p&gt;
-  &lt;label&gt;This is a TagIt list&lt;/label&gt;
-&lt;/p&gt;
+<span class="pl-k">&lt;</span>p<span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span>label<span class="pl-k">&gt;</span><span class="pl-c1">This</span> is a <span class="pl-c1">TagIt</span> list<span class="pl-k">&lt;</span><span class="pl-k">/</span>label<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>p<span class="pl-k">&gt;</span>
 
-&lt;%= tag_it_list 'plugin_emails_list',
-                { name: 'plugin[emails_list][]' },
-                { placeholder: '+ add email' } do %&gt;
-  &lt;li&gt;john@doe.com&lt;/li&gt;
-  &lt;li&gt;jane@doe.com&lt;/li&gt;
-&lt;% end %&gt;
-
-&lt;%= javascript_tag do %&gt;
+<span class="pl-k">&lt;</span><span class="pl-k">%=</span> tag_it_list <span class="pl-s"><span class="pl-pds">'</span>plugin_emails_list<span class="pl-pds">'</span></span>,
+                { <span class="pl-c1">name:</span> <span class="pl-s"><span class="pl-pds">'</span>plugin[emails_list][]<span class="pl-pds">'</span></span> },
+                { <span class="pl-c1">placeholder:</span> <span class="pl-s"><span class="pl-pds">'</span>+ add email<span class="pl-pds">'</span></span> } <span class="pl-k">do </span><span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s">  &lt;li<span class="pl-pds">&gt;</span></span>john<span class="pl-smi">@doe</span>.com<span class="pl-k">&lt;</span><span class="pl-k">/</span>li<span class="pl-k">&gt;</span>
+  <span class="pl-k">&lt;</span>li<span class="pl-k">&gt;</span>jane<span class="pl-smi">@doe</span>.com<span class="pl-k">&lt;</span><span class="pl-k">/</span>li<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">%</span> <span class="pl-k">end</span> <span class="pl-s"><span class="pl-pds">%&gt;</span></span>
+<span class="pl-s"></span>
+<span class="pl-s">&lt;%= javascript_tag do %<span class="pl-pds">&gt;</span></span>
   $(document).ready(function() { setTagIt(); });
-&lt;% end %&gt;
-</code></pre>
-
-<h2>
-<a id="copyrights--license" class="anchor" href="#copyrights--license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyrights &amp; License</h2>
-
-<p>Redmine Bootstrap Kit is completely free and open source and released under the <a href="https://github.com/jbox-web/redmine_bootstrap_kit/blob/devel/LICENSE">MIT License</a>.</p>
-
-<p>Copyright (c) 2013-2015 Nicolas Rodriguez (<a href="mailto:nrodriguez@jbox-web.com">nrodriguez@jbox-web.com</a>), JBox Web (<a href="http://www.jbox-web.com">http://www.jbox-web.com</a>) <a href="https://coderwall.com/n-rodriguez"><img src="https://api.coderwall.com/n-rodriguez/endorsecount.png" alt="endorse"></a></p>
+<span class="pl-k">&lt;</span><span class="pl-k">%</span> <span class="pl-k">end</span> <span class="pl-s"><span class="pl-pds">%&gt;</span></span></pre></div>
 
 <h2>
 <a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribute</h2>
@@ -209,17 +213,15 @@ end
 <li>Submitting translations</li>
 </ul>
 
-<p>You can also donate :)</p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jbox-web/redmine_bootstrap_kit">Redmine Bootstrap Kit</a> is maintained by <a href="https://github.com/jbox-web">jbox-web</a>.</span>
 
-<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=FBT7E7DAVVEEU"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate"></a></p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/jbox-web">jbox-web</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
