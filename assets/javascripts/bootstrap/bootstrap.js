@@ -226,7 +226,7 @@ function setSortableElement(element, form) {
     helper: fixHelper,
     axis: 'y',
     update: function(event, ui) {
-      $.post($(form).data('update-url'), $(this).sortable('serialize'));
+      $.post($(form).data('update-url'), $(this).sortable('serialize'), null, 'script');
     }
   });
 }

@@ -73,3 +73,8 @@ div.flash.warning, .conflict {
 .row > .col-md-12 {
   padding: 0 10px;
 }
+
+/*Redmine fix*/
+#ajax-indicator {
+  z-index: 1000;
+}
