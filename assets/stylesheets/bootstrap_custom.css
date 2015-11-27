@@ -59,9 +59,19 @@ div.flash.warning, .conflict {
   display: table-row;
 }
 
+.col-md-4 {
+  display: table-cell;
+  width: 33.3333%;
+}
+
 .col-md-6 {
   width: 45%;
   display: table-cell;
+}
+
+.col-md-8 {
+  display: table-cell;
+  width: 66.6667%;
 }
 
 .col-md-12 {
@@ -69,7 +79,9 @@ div.flash.warning, .conflict {
   display: table-cell;
 }
 
+.row > .col-md-4,
 .row > .col-md-6,
+.row > .col-md-8,
 .row > .col-md-12 {
   padding: 0 10px;
 }
