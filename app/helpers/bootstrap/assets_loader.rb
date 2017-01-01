@@ -1,7 +1,6 @@
 module Bootstrap::AssetsLoader
 
   def bootstrap_load_base
-    bs_include_js('bootstrap') +
     rbk_include_css('bootstrap_custom') +
     bs_include_css('bootstrap_custom')
   end
@@ -48,6 +47,11 @@ module Bootstrap::AssetsLoader
 
     def load_bs_module_pagination
       bs_include_css('bootstrap_pagination')
+    end
+
+
+    def load_bs_module_sortable
+      bs_include_js('bootstrap_sortable_helper')
     end
 
 
