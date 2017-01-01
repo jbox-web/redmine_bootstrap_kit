@@ -18,7 +18,7 @@ It provides :
 * [jQuery FileTree](https://github.com/daverogers/jQueryFileTree)
 * [jQuery TagIt](http://aehlke.github.io/tag-it/)
 * [jQuery UI Bootstrap 0.5](http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/) - 2014-04-19
-* [FontAwesome 4.3.0](http://fortawesome.github.io/Font-Awesome/)
+* [FontAwesome 4.7.0](http://fortawesome.github.io/Font-Awesome/)
 * [Highcharts 4.1.4](https://github.com/highslide-software/highcharts.com)
 * [ZeroClipboard 2.3.0](https://github.com/zeroclipboard/zeroclipboard)
 * [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify)

@@ -69,7 +69,7 @@ module Bootstrap::AssetsLoader
 
 
     def load_bs_module_font_awesome
-      rbk_include_css('font_awesome')
+      rbk_include_css('font-awesome')
     end
 
 
