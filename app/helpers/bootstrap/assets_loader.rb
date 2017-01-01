@@ -28,6 +28,7 @@ module Bootstrap::AssetsLoader
 
     def load_bs_module_alerts
       bs_include_js('bootstrap_alert') +
+      bs_include_js('bootstrap_alert_helper') +
       bs_include_js('bootstrap_transitions') +
       bs_include_css('bootstrap_alert') +
       bs_include_css('bootstrap_animations') +
@@ -41,7 +42,7 @@ module Bootstrap::AssetsLoader
 
 
     def load_bs_module_modals
-      render('common/modal_base')
+      bs_include_js('bootstrap_modal')
     end
 
 
@@ -52,6 +53,7 @@ module Bootstrap::AssetsLoader
 
     def load_bs_module_switch
       bs_include_js('bootstrap_switch') +
+      bs_include_js('bootstrap_switch_helper') +
       bs_include_css('bootstrap_switch')
     end
 
@@ -79,6 +81,7 @@ module Bootstrap::AssetsLoader
 
     def load_bs_module_tooltip
       bs_include_js('bootstrap_tooltip') +
+      bs_include_js('bootstrap_tooltip_helper') +
       bs_include_css('bootstrap_tooltip')
     end
 
@@ -91,6 +94,7 @@ module Bootstrap::AssetsLoader
 
     def load_bs_module_tag_it
       bs_include_js('jquery_tag_it') +
+      bs_include_js('jquery_tag_it_helper') +
       bs_include_css('jquery_tag_it')
     end
 

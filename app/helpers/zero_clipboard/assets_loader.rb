@@ -1,7 +1,8 @@
 module ZeroClipboard::AssetsLoader
 
   def zero_clipboard_load_base
-    zc_include_js('zero_clipboard_min') +
+    zc_include_js('zero_clipboard.min') +
+    zc_include_js('zero_clipboard') +
     zc_include_css('zero_clipboard')
   end
 
