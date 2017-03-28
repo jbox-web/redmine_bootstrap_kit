@@ -9,7 +9,8 @@ module ZeroClipboard::ZeroClipboardHelper
 
 
     def render_zero_clipboard_button(target)
-      content_tag(:div, image_tag('paste.png', plugin: 'redmine_bootstrap_kit'), id: "zc_#{target}", class: 'clipboard_button', data: zero_clipboard_options.merge('clipboard-target' => target))
+      opts = { id: "zc_#{target}", class: 'clipboard_button', data: zero_clipboard_options.merge('clipboard-target' => target) }
+      content_tag(:div, image_tag('paste.png', plugin: 'redmine_bootstrap_kit'), opts)
     end
 
 
