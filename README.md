@@ -3,7 +3,6 @@
 [![GitHub license](https://img.shields.io/github/license/jbox-web/redmine_bootstrap_kit.svg)](https://github.com/jbox-web/redmine_bootstrap_kit/blob/devel/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/jbox-web/redmine_bootstrap_kit.svg)](https://github.com/jbox-web/redmine_bootstrap_kit/releases/latest)
 [![Code Climate](https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit.png)](https://codeclimate.com/github/jbox-web/redmine_bootstrap_kit)
-[![Dependency Status](https://gemnasium.com/jbox-web/redmine_bootstrap_kit.svg)](https://gemnasium.com/jbox-web/redmine_bootstrap_kit)
 
 ### A Redmine plugin which makes developing your own Redmine plugin easy ;)
 
